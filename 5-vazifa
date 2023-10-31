@@ -1,0 +1,22 @@
+import sys
+from PyQt5.QtWidgets import QApplication, QMainWindow, QPushButton
+
+
+class My_oyna(QMainWindow):
+    def __init__(self):
+        super().__init__()
+        self.button = QPushButton("10", self)
+        self.button.clicked.connect(self.button_bosildi)
+        self.c = 0
+
+    def button_bosildi(self):
+        self.c += 1
+        self.button.setText(str(10 - self.c))
+        if self.c == 10:
+            self.button.setEnabled(False)
+
+
+app = QApplication(sys.argv)
+oyna = My_oyna()
+oyna.show()
+sys.exit(app.exec_())
